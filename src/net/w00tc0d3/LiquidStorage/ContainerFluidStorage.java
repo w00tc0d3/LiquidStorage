@@ -13,14 +13,13 @@ import net.minecraft.tileentity.TileEntityFurnace;
  * To change this template use File | Settings | File Templates.
  */
 public class ContainerFluidStorage extends Container {
-    private TileFluidStorage tileFluidStorage;
+    public ContainerFluidStorage(TileFluidStorage tileEntity) {
 
-    public ContainerFluidStorage(TileFluidStorage tileFluidStorage) {
-        this.tileFluidStorage = tileFluidStorage;
     }
 
+
     @Override
-    public boolean canInteractWith(EntityPlayer par1EntityPlayer) {
-        return this.tileFluidStorage.isUseableByPlayer(par1EntityPlayer);
+    public boolean canInteractWith(EntityPlayer player) {
+        return true;
     }
 }

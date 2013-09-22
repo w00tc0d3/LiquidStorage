@@ -62,6 +62,9 @@ public class GuiHandler implements IGuiHandler {
 
         TileEntity tile = world.getBlockTileEntity(x, y, z);
 
+        if(tile == null)
+            return null;
+
         switch(ID) {
             case 0:
                 if(!(tile instanceof TileFluidStorage))

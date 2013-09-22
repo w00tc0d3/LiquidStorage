@@ -41,11 +41,11 @@ public class FluidStorageBlock extends BlockContainer {
     /**
      * Called upon block activation (right click on the block.)
      */
-    public boolean onBlockActivated(World par1World, int xPar, int yPar, int zPar, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9) {
+    public boolean onBlockActivated(World par1World, int xPar, int yPar, int zPar, EntityPlayer player, int par6, float par7, float par8, float par9) {
         TileFluidStorage tileFluidStorage = (TileFluidStorage) par1World.getBlockTileEntity(xPar, yPar, zPar);
 
         if(tileFluidStorage != null) {
-            par5EntityPlayer.openGui(LiquidStorage.liquidStorage, 0, par1World, xPar, yPar, zPar);
+            player.openGui(LiquidStorage.liquidStorage, 0, par1World, xPar, yPar, zPar);
         }
         return true;
     }

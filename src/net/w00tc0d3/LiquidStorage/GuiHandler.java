@@ -35,7 +35,7 @@ public class GuiHandler implements IGuiHandler {
             case 0:
                 if(!(tile instanceof TileFluidStorage))
                     return null;
-                return new ContainerFluidStorage(player.inventory, (TileFluidStorage) tile);
+                return new ContainerFluidStorage((TileFluidStorage) tile);
 
             default:
                 return null;
@@ -66,7 +66,7 @@ public class GuiHandler implements IGuiHandler {
             case 0:
                 if(!(tile instanceof TileFluidStorage))
                     return null;
-                return new GuiFluidStorage(player.inventory, (TileFluidStorage) tile);
+                return new GuiFluidStorage((TileFluidStorage) tile);
             default:
                 return null;
         }

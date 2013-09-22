@@ -18,24 +18,20 @@ import org.lwjgl.opengl.GL11;
  */
 public class GuiFluidStorage extends GuiContainer {
 
-    private static final ResourceLocation furnaceGuiTextures = new ResourceLocation("textures/gui/container/furnace.png");
+    private static final ResourceLocation gui = new ResourceLocation("minecraft", "textures/gui/container/furnace.png");
     private TileFluidStorage fluidStorage;
 
-    public GuiFluidStorage(InventoryPlayer par1InventoryPlayer, TileFluidStorage fluidStorage)
+    public GuiFluidStorage(TileFluidStorage fluidStorage)
     {
-        super(new ContainerFluidStorage(par1InventoryPlayer, fluidStorage));
-        this.fluidStorage = fluidStorage;
+        super(new ContainerFluidStorage(fluidStorage));
     }
 
-    /**
-     * Draw the background layer for the GuiContainer (everything behind the items)
-     */
     @Override
     protected void drawGuiContainerBackgroundLayer(float f, int i, int j) {
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-        this.mc.getTextureManager().bindTexture(furnaceGuiTextures);
-        int k = (this.width - this.xSize) / 2;
-        int l = (this.height - this.ySize) / 2;
-        this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);
+        mc.renderEngine.bindTexture(gui);
+        int l = (width - xSize) / 2;
+        int i1 = (height - ySize) / 2;
+        drawTexturedModalRect(l, i1, 0, 0, xSize, ySize);
     }
 }

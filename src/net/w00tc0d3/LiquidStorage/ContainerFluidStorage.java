@@ -15,7 +15,7 @@ import net.minecraft.tileentity.TileEntityFurnace;
 public class ContainerFluidStorage extends Container {
     private TileFluidStorage tileFluidStorage;
 
-    public ContainerFluidStorage(InventoryPlayer par1InventoryPlayer, TileFluidStorage tileFluidStorage) {
+    public ContainerFluidStorage(TileFluidStorage tileFluidStorage) {
         this.tileFluidStorage = tileFluidStorage;
     }
 

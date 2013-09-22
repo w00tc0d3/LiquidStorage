@@ -24,6 +24,16 @@ public class FluidStorageBlock extends BlockContainer {
      */
     @Override
     public TileEntity createNewTileEntity(World world) {
+        return null;
+    }
+
+    @Override
+    public boolean hasTileEntity(int meta) {
+        return true;
+    }
+
+    @Override
+    public TileEntity createTileEntity(World world, int meta) {
         return new TileFluidStorage();
     }
 
@@ -32,16 +42,12 @@ public class FluidStorageBlock extends BlockContainer {
      * Called upon block activation (right click on the block.)
      */
     public boolean onBlockActivated(World par1World, int xPar, int yPar, int zPar, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9) {
-        if(par1World.isRemote) {
-            return true;
-        } else {
-            TileFluidStorage tileFluidStorage = (TileFluidStorage)par1World.getBlockTileEntity(xPar, yPar, zPar);
+        TileFluidStorage tileFluidStorage = (TileFluidStorage) par1World.getBlockTileEntity(xPar, yPar, zPar);
 
-            if(tileFluidStorage != null) {
-                par5EntityPlayer.openGui(tileFluidStorage, 0, par1World, xPar, yPar, zPar);
-            }
-            return true;
+        if(tileFluidStorage != null) {
+            par5EntityPlayer.openGui(LiquidStorage.liquidStorage, 0, par1World, xPar, yPar, zPar);
         }
+        return true;
     }
 
     @SideOnly(Side.CLIENT)

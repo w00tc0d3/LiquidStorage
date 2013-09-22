@@ -18,8 +18,6 @@ public class LiquidStorage {
     @Mod.Instance(modid)
     public static LiquidStorage liquidStorage;
 
-    public final static Block blockFluidStorage = new FluidStorageBlock(500);
-
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
 
@@ -27,6 +25,8 @@ public class LiquidStorage {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
+        final Block blockFluidStorage = new FluidStorageBlock(500);
+
         GameRegistry.registerBlock(blockFluidStorage, blockFluidStorage.getUnlocalizedName());
         GameRegistry.registerTileEntity(TileFluidStorage.class, "tileFluidStorage");
         LanguageRegistry.addName(blockFluidStorage, "Fluid Storage");

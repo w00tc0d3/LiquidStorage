@@ -67,8 +67,10 @@ public class GuiHandler implements IGuiHandler {
 
         switch(ID) {
             case 0:
+                System.out.println("ID = " + ID);
                 if(!(tile instanceof TileFluidStorage))
                     return null;
+                System.out.println("Tile is instance of TileLiquidStorage.");
                 return new GuiFluidStorage((TileFluidStorage) tile);
             default:
                 return null;

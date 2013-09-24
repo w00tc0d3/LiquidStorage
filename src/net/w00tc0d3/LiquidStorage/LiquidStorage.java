@@ -16,10 +16,9 @@ import net.w00tc0d3.LiquidStorage.GuiHandler;
 @NetworkMod(clientSideRequired = true, serverSideRequired = true, channels = { LiquidStorage.modid }, packetHandler = PacketHandler.class)
 public class LiquidStorage {
     public final static String modid = "liquidstorage";
-    public static GuiHandler guiHandler;
 
     @Mod.Instance(modid)
-    public static LiquidStorage liquidStorage;
+    public static LiquidStorage instance;
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
@@ -32,7 +31,7 @@ public class LiquidStorage {
 
         GameRegistry.registerBlock(blockFluidStorage, blockFluidStorage.getUnlocalizedName());
         GameRegistry.registerTileEntity(TileFluidStorage.class, "tileFluidStorage");
-        NetworkRegistry.instance().registerGuiHandler(this, guiHandler);
+        NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
         LanguageRegistry.addName(blockFluidStorage, "Fluid Storage");
     }
 }
